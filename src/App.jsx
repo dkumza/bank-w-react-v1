@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
 import { read, store, destroy, update } from "../ls";
 import { Create } from "./components/Create";
 import { Store } from "./components/Store";
+import Messages from "./components/Messages";
+import { v4 as uuidv4 } from "uuid";
 
 const KEY = "users";
 
@@ -14,8 +17,7 @@ function App() {
    const [clear, setClear] = useState(null); // destroy
    const [edit, setEdit] = useState(null);
    const [updateUsers, setUpdateUsers] = useState(null);
-
-   console.log(users);
+   const [messages, setMessages] = useState([]);
 
    useEffect(() => {
       // imitate fetch from server
@@ -39,6 +41,7 @@ function App() {
       }
       const id = store(KEY, create);
       setUsers((user) => [{ ...create, id }, ...user]);
+      addMessage("success", "Account has been created");
    }, [create]);
 
    useEffect(() => {
@@ -49,6 +52,7 @@ function App() {
       setUsers((u) => u.filter((user) => user.id !== clear.id));
       setClear(null);
       setRemove(null);
+      addMessage("success", "Account has been deleted");
    }, [clear]);
 
    useEffect(() => {
@@ -64,11 +68,29 @@ function App() {
       );
       setEdit(null);
       setUpdateUsers(null);
+      addMessage("success", "Balance updated");
    }, [updateUsers]);
+
+   const addMessage = (type, text) => {
+      const id = uuidv4();
+      setMessages((m) => [{ id, type, text }, ...m]);
+      setTimeout((_) => {
+         setMessages((m) => m.filter((message) => message.id !== id));
+      }, 3000);
+   };
+
+   const removeMessage = (id) => {
+      setMessages((m) => m.filter((message) => message.id !== id));
+   };
 
    return (
       <div className="flex gap-4 lg:flex-row flex-col justify-center ">
-         <Create setCreate={setCreate} />
+         <Create
+            setCreate={setCreate}
+            addMessage={addMessage}
+            messages={messages}
+            removeMessage={removeMessage}
+         />
          <Store
             users={users}
             updateUsers={updateUsers}
@@ -80,6 +102,7 @@ function App() {
             setClear={setClear}
             handleSortClick={handleSortClick}
          />
+         <Messages messages={messages} removeMessage={removeMessage} />
       </div>
    );
 }

@@ -1,12 +1,14 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 
-export const Create = ({ setCreate }) => {
+export const Create = ({ setCreate, addMessage, messages, removeMessage }) => {
    const [name, setName] = useState("");
    const [lastName, setLastName] = useState("");
 
    const add = () => {
       if (name === "" || lastName === "") {
+         addMessage("danger", "Please fill data first");
+
          return;
       }
       setCreate({

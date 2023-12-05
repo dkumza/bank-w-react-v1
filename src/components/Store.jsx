@@ -9,6 +9,9 @@ export const Store = ({
    setUpdateUsers,
    edit,
    setEdit,
+   remove,
+   setRemove,
+   setClear,
 }) => {
    return (
       <div className="w-full p-12 border rounded-lg shadow">
@@ -29,6 +32,9 @@ export const Store = ({
                   setUpdateUsers={setUpdateUsers}
                   edit={edit}
                   setEdit={setEdit}
+                  remove={remove}
+                  setRemove={setRemove}
+                  setClear={setClear}
                />
             ))}
          </div>

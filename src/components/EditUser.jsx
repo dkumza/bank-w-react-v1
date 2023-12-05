@@ -8,6 +8,9 @@ export const EditUser = ({
    setUpdateUsers,
    edit,
    setEdit,
+   remove,
+   setRemove,
+   setClear,
 }) => {
    const [resize, setResize] = useState(false); // resize edit wrapper
    const [balance, setBalance] = useState(0);
@@ -83,7 +86,13 @@ export const EditUser = ({
                className={resize ? "right-wrap flex flex-row gap-4 w-full" : ""}
             >
                <button className={resize ? "hidden" : "btn-second btn-sec-1"}>
-                  <span className="btn-span" onClick={handleEdit}>
+                  <span
+                     className="btn-span"
+                     onClick={() => {
+                        handleEdit();
+                        setRemove(user);
+                     }}
+                  >
                      EDIT
                   </span>
                </button>
@@ -106,7 +115,15 @@ export const EditUser = ({
                         </button>
                      </div>
                      <div className="btn-edit-wrap flex gap-4 justify-center">
-                        <button className="btn-second">Delete Acc</button>
+                        <button
+                           className="btn-second"
+                           onClick={() => {
+                              setClear(remove);
+                              setEdit(null);
+                           }}
+                        >
+                           Delete Acc
+                        </button>
                         <button
                            className="btn-second btn-sec-3"
                            onClick={handleEdit}

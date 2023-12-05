@@ -10,6 +10,8 @@ const KEY = "users";
 function App() {
    const [users, setUsers] = useState([]);
    const [create, setCreate] = useState(null);
+   const [remove, setRemove] = useState(null); // delete
+   const [clear, setClear] = useState(null); // destroy
    const [edit, setEdit] = useState(null);
    const [updateUsers, setUpdateUsers] = useState(null);
 
@@ -25,8 +27,18 @@ function App() {
          return;
       }
       const id = store(KEY, create);
-      setUsers((user) => [...user, { ...create, id }]);
+      setUsers((user) => [{ ...create, id }, ...user]);
    }, [create]);
+
+   useEffect(() => {
+      if (null === clear) {
+         return;
+      }
+      destroy(KEY, clear.id);
+      setUsers((u) => u.filter((user) => user.id !== clear.id));
+      setClear(null);
+      setRemove(null);
+   }, [clear]);
 
    useEffect(() => {
       if (null === updateUsers) return;
@@ -52,6 +64,9 @@ function App() {
             setUpdateUsers={setUpdateUsers}
             edit={edit}
             setEdit={setEdit}
+            remove={remove}
+            setRemove={setRemove}
+            setClear={setClear}
          />
       </div>
    );

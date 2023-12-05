@@ -23,8 +23,8 @@
 input {
    @apply border 
    py-2 px-4 
-   rounded-xl  
-   shadow 
+   rounded-lg
+   shadow-md
    outline-sky-500  
    placeholder:text-gray-400;
 }
@@ -39,7 +39,7 @@ input {
    focus:outline-none
  focus:ring-sky-600
    font-medium 
-   rounded-xl    
+   rounded-full 
    px-5 py-2 
    text-center;
 }
@@ -69,9 +69,9 @@ input {
    focus:ring-1 
    focus:ring-red-300 
    font-medium
-   rounded-xl 
+   rounded-full
    py-1
-   px-3;
+   px-4;
 }
 
 .btn-sec-1 {

@@ -15,6 +15,8 @@ export const EditUser = ({
    const [resize, setResize] = useState(false); // resize edit wrapper
    const [balance, setBalance] = useState(0);
 
+   // console.log(users);
+
    const handleEdit = () => {
       setResize((editing) => !resize);
    };

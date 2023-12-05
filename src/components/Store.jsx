@@ -12,12 +12,21 @@ export const Store = ({
    remove,
    setRemove,
    setClear,
+   handleSortClick,
 }) => {
    return (
       <div className="w-full p-12 border rounded-lg shadow">
-         <h1 className="text-3xl text-gray-700 text-center mb-2">
-            All Accounts
-         </h1>
+         <div className="info flex justify-between items-center">
+            <h1 className="text-3xl text-gray-700 text-center mb-2">
+               All Accounts
+            </h1>
+            <button
+               className="rounded-full hover:bg-green-500 hover:text-white h-6 px-4 text-sm"
+               onClick={handleSortClick}
+            >
+               A-Z
+            </button>
+         </div>
          <div className="store-wrap">
             {users === null && <p className="">Loading...</p>}
             {users !== null && !users.length && (

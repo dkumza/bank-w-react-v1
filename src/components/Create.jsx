@@ -50,7 +50,13 @@ export const Create = ({ setCreate }) => {
                   }}
                />
                <div className="btn-wrap flex justify-end">
-                  <button className="btn-primary" onClick={add}>
+                  <button
+                     className="btn-primary"
+                     onClick={() => {
+                        add();
+                        // sortUsers(users);
+                     }}
+                  >
                      Add Account
                   </button>
                </div>

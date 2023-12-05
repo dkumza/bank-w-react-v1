@@ -15,12 +15,23 @@ function App() {
    const [edit, setEdit] = useState(null);
    const [updateUsers, setUpdateUsers] = useState(null);
 
+   console.log(users);
+
    useEffect(() => {
       // imitate fetch from server
-      setTimeout(() => {
-         setUsers(read(KEY));
-      }, 300);
+      // setTimeout(() => {
+      setUsers(read(KEY));
+      // }, 500);
    }, []);
+
+   const sortUsers = (users) => {
+      return [...users].sort((a, b) => a.lastName.localeCompare(b.lastName));
+   };
+   const handleSortClick = () => {
+      const sortedUsers = sortUsers(read(KEY));
+      setUsers(sortedUsers);
+      localStorage.setItem(KEY, JSON.stringify(sortedUsers));
+   };
 
    useEffect(() => {
       if (null === create) {
@@ -67,6 +78,7 @@ function App() {
             remove={remove}
             setRemove={setRemove}
             setClear={setClear}
+            handleSortClick={handleSortClick}
          />
       </div>
    );

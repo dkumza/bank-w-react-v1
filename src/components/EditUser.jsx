@@ -23,16 +23,20 @@ export const EditUser = ({
       setBalance(edit.balance);
    }, [edit]);
 
-   const save = () => {
-      const updatedBalance = user.balance + balance;
-
+   const save = (updatedBalance) => {
       setUpdateUsers({ ...edit, balance: updatedBalance, id: user.id });
       setEdit(null);
    };
 
-   // const handleAddBalance = () => {
-   //    user.balance += balance;
-   // };
+   const handleAddBalance = () => {
+      const updatedBalance = user.balance + balance;
+      save(updatedBalance);
+   };
+
+   const handleRemoveBalance = () => {
+      const updatedBalance = user.balance - balance;
+      save(updatedBalance);
+   };
 
    return (
       <div>
@@ -44,10 +48,9 @@ export const EditUser = ({
                className={
                   resize
                      ? "flex flex-row-reverse items-center gap-4 justify-between w-full"
-                     : "left-wrap flex gap-4 justify-center items-center "
+                     : "left-wrap flex gap-4 justify-between items-center w-full mr-4"
                }
             >
-               <div className="balance w-14">${user.balance}</div>
                <div className="full-name ">
                   <h1 className="italic text-sm text-gray-500">
                      Account Owner
@@ -56,12 +59,22 @@ export const EditUser = ({
                      {user.name} {user.lastName}
                   </p>
                </div>
+               <div
+                  className={
+                     user.balance < 0
+                        ? "text-rose-600 text-2xl"
+                        : "text-lime-600 text-2xl"
+                  }
+               >
+                  ${user.balance}
+               </div>
             </div>
             {resize ? (
                <input
                   type="number"
                   className="w-1/4 my-4"
                   placeholder="Edit Balance"
+                  min={0}
                   value={balance}
                   onChange={(e) => setBalance(parseInt(e.target.value))}
                />
@@ -80,12 +93,17 @@ export const EditUser = ({
                         <button
                            className="btn-second btn-sec-1"
                            onClick={() => {
-                              save();
+                              handleAddBalance();
                            }}
                         >
                            Add
                         </button>
-                        <button className="btn-second btn-sec-2">Remove</button>
+                        <button
+                           className="btn-second btn-sec-2"
+                           onClick={handleRemoveBalance}
+                        >
+                           Remove
+                        </button>
                      </div>
                      <div className="btn-edit-wrap flex gap-4 justify-center">
                         <button className="btn-second">Delete Acc</button>

@@ -22,7 +22,7 @@ export const Create = ({ setCreate }) => {
    return (
       <div className="create-wrap">
          <div className="create">
-            <div className="create-title mb-2 text-center text-3xl text-gray-700">
+            <div className="create-title mb-4 text-center text-3xl text-gray-700">
                Please Fill Data
             </div>
             <form

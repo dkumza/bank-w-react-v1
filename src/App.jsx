@@ -31,16 +31,6 @@ function App() {
    useEffect(() => {
       if (null === updateUsers) return;
 
-      // console.log(updateUsers);
-      // setUsers((prevUsers) => {
-      //    const updatedUsers = prevUsers.map((user) =>
-      //       user.id === updateUsers.id
-      //          ? { ...user, balance: updateUsers.balance }
-      //          : user
-      //    );
-      //    return updatedUsers;
-      // });
-
       update(KEY, updateUsers.id, updateUsers);
       setUsers((u) =>
          u.map((user) =>
@@ -54,7 +44,7 @@ function App() {
    }, [updateUsers]);
 
    return (
-      <div className="flex gap-4">
+      <div className="flex gap-4 lg:flex-row flex-col justify-center ">
          <Create setCreate={setCreate} />
          <Store
             users={users}

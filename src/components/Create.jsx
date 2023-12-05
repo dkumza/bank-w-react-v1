@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 
-export const Create = ({ setCreate, addMessage, messages, removeMessage }) => {
+export const Create = ({ setCreate, addMessage }) => {
    const [name, setName] = useState("");
    const [lastName, setLastName] = useState("");
 

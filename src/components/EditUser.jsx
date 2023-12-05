@@ -3,8 +3,6 @@ import { useState, useEffect } from "react";
 
 export const EditUser = ({
    user,
-   users,
-   updateUsers,
    setUpdateUsers,
    edit,
    setEdit,

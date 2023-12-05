@@ -85,12 +85,7 @@ function App() {
 
    return (
       <div className="flex gap-4 lg:flex-row flex-col justify-center ">
-         <Create
-            setCreate={setCreate}
-            addMessage={addMessage}
-            messages={messages}
-            removeMessage={removeMessage}
-         />
+         <Create setCreate={setCreate} addMessage={addMessage} />
          <Store
             users={users}
             updateUsers={updateUsers}

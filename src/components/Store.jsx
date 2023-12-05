@@ -14,11 +14,6 @@ export const Store = ({
    setClear,
    handleSortClick,
 }) => {
-   // const [filter, setFilter] = useState(false);
-
-   // const handleFilter = () => {
-   //    setFilter((f) => !filter);
-   // };
    return (
       <div className="w-full p-12 border rounded-lg shadow-xl">
          <div className="info flex justify-between items-center">

@@ -65,17 +65,17 @@ export const EditUser = ({
                <div
                   className={
                      user.balance < 0
-                        ? "text-rose-600 text-2xl"
-                        : "text-lime-600 text-2xl"
+                        ? "text-rose-600 text-4xl"
+                        : "text-lime-600 text-4xl"
                   }
                >
-                  ${user.balance}
+                  $ {user.balance}
                </div>
             </div>
             {resize ? (
                <input
                   type="number"
-                  className="w-1/4 my-4"
+                  className="w-5/12 my-4"
                   placeholder="Edit Balance"
                   min={0}
                   value={balance}
@@ -105,13 +105,13 @@ export const EditUser = ({
                               handleAddBalance();
                            }}
                         >
-                           Add
+                           Add $
                         </button>
                         <button
                            className="btn-second btn-sec-2"
                            onClick={handleRemoveBalance}
                         >
-                           Remove
+                           Remove $
                         </button>
                      </div>
                      <div className="btn-edit-wrap flex gap-4 justify-center">

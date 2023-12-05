@@ -14,7 +14,8 @@
 .create-wrap {
    @apply lg:w-1/3
    lg:h-fit
-  border p-12
+  p-12
+border
   shadow-xl
   rounded-lg
    px-8;
@@ -38,7 +39,7 @@ input {
    focus:ring-1
    focus:outline-none
  focus:ring-sky-600
-   font-medium 
+   font-semibold
    rounded-full 
    px-5 py-2 
    text-center;
@@ -68,7 +69,7 @@ input {
    focus:outline-none 
    focus:ring-1 
    focus:ring-red-300 
-   font-medium
+   font-semibold
    rounded-full
    py-1
    px-4;

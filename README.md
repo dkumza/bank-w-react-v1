@@ -6,8 +6,9 @@ This is a CRUD (Create, Read, Update, Delete) application for managing created "
 
 -  Add new accounts
 -  Edit existing accounts balances
--  Remove balances
+-  Remove accounts
 -  Displays notification messages
+-  localStorage
 
 ## Installation
 

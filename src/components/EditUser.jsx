@@ -75,7 +75,7 @@ export const EditUser = ({
             {resize ? (
                <input
                   type="number"
-                  className="w-5/12 my-4"
+                  className="w-56 my-4"
                   placeholder="Edit Balance"
                   min={0}
                   value={balance}

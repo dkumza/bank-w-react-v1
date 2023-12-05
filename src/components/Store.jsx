@@ -3,7 +3,13 @@ import { useState } from "react";
 import { EditUser } from "./EditUser";
 
 /* eslint-disable react/prop-types */
-export const Store = ({ users }) => {
+export const Store = ({
+   users,
+   updateUsers,
+   setUpdateUsers,
+   edit,
+   setEdit,
+}) => {
    return (
       <div className="w-full p-12 border rounded-lg shadow">
          <h1 className="text-3xl text-gray-700 text-center mb-2">
@@ -15,7 +21,15 @@ export const Store = ({ users }) => {
                <p className="m-2  text-base">Fill Data First</p>
             )}
             {users.map((user) => (
-               <EditUser key={user.id} user={user} />
+               <EditUser
+                  key={user.id}
+                  user={user}
+                  users={users}
+                  updateUsers={updateUsers}
+                  setUpdateUsers={setUpdateUsers}
+                  edit={edit}
+                  setEdit={setEdit}
+               />
             ))}
          </div>
       </div>

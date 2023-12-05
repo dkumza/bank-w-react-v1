@@ -30,6 +30,7 @@ export const read = (key, id = 0) => {
 };
 
 export const update = (key, id, value) => {
+   console.log(key, id, value);
    const items = get(key).map((item) =>
       item.id === id ? { ...item, ...value, id } : item
    );

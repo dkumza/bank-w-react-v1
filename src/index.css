@@ -53,7 +53,7 @@ input {
 }
 
 .new-user-big {
-   @apply h-56 flex  py-4 border px-8 rounded-lg shadow-md flex-col justify-center  min-w-full;
+   @apply h-64 flex   py-4 border px-8 rounded-lg shadow-md flex-col justify-between  min-w-full;
 }
 
 .balance {
@@ -67,10 +67,10 @@ input {
    focus:outline-none 
    focus:ring-1 
    focus:ring-red-300 
-   font-medium 
+   font-medium
    rounded-xl 
-   px-5 py-2 
-   text-center;
+   py-1
+   px-3;
 }
 
 .btn-sec-1 {
@@ -78,6 +78,10 @@ input {
 }
 .btn-sec-2 {
    @apply bg-amber-500 hover:bg-amber-600 focus:outline-none focus:ring-4 focus:ring-amber-300;
+}
+
+.btn-sec-3 {
+   @apply bg-sky-500 hover:bg-sky-600 focus:outline-none focus:ring-4 focus:ring-sky-300;
 }
 
 /* .btn-span {

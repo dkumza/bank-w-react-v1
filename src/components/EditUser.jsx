@@ -1,12 +1,39 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-export const EditUser = ({ user }) => {
-   const [resize, setResize] = useState(false);
+export const EditUser = ({
+   user,
+   users,
+   updateUsers,
+   setUpdateUsers,
+   edit,
+   setEdit,
+}) => {
+   const [resize, setResize] = useState(false); // resize edit wrapper
+   const [balance, setBalance] = useState(0);
 
    const handleEdit = () => {
       setResize((editing) => !resize);
    };
+
+   useEffect(() => {
+      if (null === edit) {
+         return;
+      }
+      setBalance(edit.balance);
+   }, [edit]);
+
+   const save = () => {
+      const updatedBalance = user.balance + balance;
+
+      setUpdateUsers({ ...edit, balance: updatedBalance, id: user.id });
+      setEdit(null);
+   };
+
+   // const handleAddBalance = () => {
+   //    user.balance += balance;
+   // };
+
    return (
       <div>
          <li
@@ -35,7 +62,9 @@ export const EditUser = ({ user }) => {
                   type="number"
                   className="w-1/4 my-4"
                   placeholder="Edit Balance"
-               ></input>
+                  value={balance}
+                  onChange={(e) => setBalance(parseInt(e.target.value))}
+               />
             ) : null}
             <div
                className={resize ? "right-wrap flex flex-row gap-4 w-full" : ""}
@@ -48,17 +77,24 @@ export const EditUser = ({ user }) => {
                {resize ? (
                   <div className="edit flex justify-between min-w-max gap-4 w-full">
                      <div className="btn-edit-wrap flex gap-4">
-                        <button className="btn-second btn-sec-1">Add</button>
+                        <button
+                           className="btn-second btn-sec-1"
+                           onClick={() => {
+                              save();
+                           }}
+                        >
+                           Add
+                        </button>
                         <button className="btn-second btn-sec-2">Remove</button>
                      </div>
-                     <div className="btn-edit-wrap flex gap-4">
+                     <div className="btn-edit-wrap flex gap-4 justify-center">
+                        <button className="btn-second">Delete Acc</button>
                         <button
-                           className="btn-second btn-sec-2"
+                           className="btn-second btn-sec-3"
                            onClick={handleEdit}
                         >
-                           Cancel
+                           Close
                         </button>
-                        <button className="btn-second">Delete</button>
                      </div>
                   </div>
                ) : null}

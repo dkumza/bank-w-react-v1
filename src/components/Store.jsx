@@ -15,7 +15,7 @@ export const Store = ({
    handleSortClick,
 }) => {
    return (
-      <div className="w-full p-12 border rounded-lg shadow-xl">
+      <div className="store-wrap-main ">
          <div className="info flex justify-between items-center">
             <h1 className="text-3xl text-gray-700 text-center mb-2">
                All Accounts

@@ -1,3 +1,5 @@
+import "bootstrap/dist/css/bootstrap.min.css";
+
 export default function Messages({ messages, removeMessage }) {
    if (messages.length === 0) {
       return null;

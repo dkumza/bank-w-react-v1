@@ -54,8 +54,12 @@ export const EditUser = ({
                      : "left-wrap flex gap-4 justify-between items-center w-full mr-4"
                }
             >
-               <div className="full-name ">
-                  <h1 className="italic text-sm text-gray-500">
+               <div
+                  className={
+                     resize ? "full-name text-end" : "full-name text-start"
+                  }
+               >
+                  <h1 className="italic text-sm text-gray-500 ">
                      Account Owner
                   </h1>
                   <p className="uppercase">
@@ -90,7 +94,7 @@ export const EditUser = ({
                      className="btn-span"
                      onClick={() => {
                         handleEdit();
-                        setRemove(user);
+                        // setRemove(user);
                      }}
                   >
                      EDIT
@@ -118,7 +122,10 @@ export const EditUser = ({
                         <button
                            className="btn-second"
                            onClick={() => {
-                              setClear(remove);
+                              setRemove(user);
+                              setClear(user);
+                              // setRemove(user);
+                              // setClear(remove);
                               setEdit(null);
                            }}
                         >

@@ -1,10 +1,7 @@
-/* eslint-disable no-unused-vars */
-import { useState } from "react";
 import { EditUser } from "./EditUser";
 
 export const Store = ({
   users,
-  updateUsers,
   setUpdateUsers,
   edit,
   setEdit,

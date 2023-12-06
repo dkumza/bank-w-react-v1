@@ -5,7 +5,6 @@ export const EditUser = ({
   setUpdateUsers,
   edit,
   setEdit,
-  remove,
   setRemove,
   setClear,
 }) => {
@@ -13,7 +12,7 @@ export const EditUser = ({
   const [balance, setBalance] = useState(0);
 
   const handleEdit = () => {
-    setResize((editing) => !resize);
+    setResize(() => !resize);
   };
 
   useEffect(() => {

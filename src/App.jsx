@@ -70,7 +70,7 @@ function App() {
   const addMessage = (type, text) => {
     const id = uuidv4();
     setMessages((m) => [{ id, type, text }, ...m]);
-    setTimeout((_) => {
+    setTimeout(() => {
       setMessages((m) => m.filter((message) => message.id !== id));
     }, 3000);
   };

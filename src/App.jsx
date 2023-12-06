@@ -19,9 +19,7 @@ function App() {
 
   useEffect(() => {
     // imitate fetch from server
-    // setTimeout(() => {
     setUsers(read(KEY));
-    // }, 500);
   }, []);
 
   const sortUsers = (users) => {

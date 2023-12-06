@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const Create = ({ setCreate, addMessage }) => {
+export default function Create({ setCreate, addMessage }) {
   const [name, setName] = useState("");
   const [lastName, setLastName] = useState("");
 
@@ -57,4 +57,4 @@ export const Create = ({ setCreate, addMessage }) => {
       </div>
     </div>
   );
-};
+}

@@ -1,6 +1,6 @@
-import { EditUser } from "./EditUser";
+import EditUser from "./EditUser";
 
-export const Store = ({
+export default function Store({
   users,
   setUpdateUsers,
   edit,
@@ -9,7 +9,7 @@ export const Store = ({
   setRemove,
   setClear,
   handleSortClick,
-}) => {
+}) {
   return (
     <div className="store-wrap-main ">
       <div className="info flex justify-between items-center">
@@ -45,4 +45,4 @@ export const Store = ({
       </div>
     </div>
   );
-};
+}

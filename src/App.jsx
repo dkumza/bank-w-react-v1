@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 import { read, store, destroy, update } from "../ls";
-import { Create } from "./components/Create";
-import { Store } from "./components/Store";
+import Create from "./components/Create";
+import Store from "./components/Store";
 import Messages from "./components/Messages";
-import { v4 as uuidv4 } from "uuid";
 
 const KEY = "users";
 

@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 
-export const EditUser = ({
+export default function EditUser({
   user,
   setUpdateUsers,
   edit,
   setEdit,
   setRemove,
   setClear,
-}) => {
+}) {
   const [resize, setResize] = useState(false); // resize edit wrapper
   const [balance, setBalance] = useState(0);
 
@@ -125,4 +125,4 @@ export const EditUser = ({
       </li>
     </div>
   );
-};
+}

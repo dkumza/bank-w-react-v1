@@ -17,14 +17,22 @@ function App() {
   const [updateUsers, setUpdateUsers] = useState(null);
   const [messages, setMessages] = useState([]);
 
-  useEffect(() => {
-    // imitate fetch from server
-    setUsers(read(KEY));
-  }, []);
+  const addMessage = (type, text) => {
+    const id = uuidv4();
+    setMessages((m) => [{ id, type, text }, ...m]);
+    setTimeout(() => {
+      setMessages((m) => m.filter((message) => message.id !== id));
+    }, 3000);
+  };
+
+  const removeMessage = (id) => {
+    setMessages((m) => m.filter((message) => message.id !== id));
+  };
 
   const sortUsers = (users) => {
     return [...users].sort((a, b) => a.lastName.localeCompare(b.lastName));
   };
+
   const handleSortClick = () => {
     const sortedUsers = sortUsers(read(KEY));
     setUsers(sortedUsers);
@@ -67,17 +75,10 @@ function App() {
     addMessage("success", "Balance updated");
   }, [updateUsers]);
 
-  const addMessage = (type, text) => {
-    const id = uuidv4();
-    setMessages((m) => [{ id, type, text }, ...m]);
-    setTimeout(() => {
-      setMessages((m) => m.filter((message) => message.id !== id));
-    }, 3000);
-  };
-
-  const removeMessage = (id) => {
-    setMessages((m) => m.filter((message) => message.id !== id));
-  };
+  useEffect(() => {
+    // imitate fetch from server
+    setUsers(read(KEY));
+  }, []);
 
   return (
     <div className="flex gap-4 lg:flex-row flex-col justify-center ">

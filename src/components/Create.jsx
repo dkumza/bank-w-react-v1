@@ -4,7 +4,7 @@ export const Create = ({ setCreate, addMessage }) => {
   const [name, setName] = useState("");
   const [lastName, setLastName] = useState("");
 
-  const add = () => {
+  const handleAddAccount = () => {
     if (name === "" || lastName === "") {
       addMessage("danger", "Please fill data first");
 
@@ -49,12 +49,7 @@ export const Create = ({ setCreate, addMessage }) => {
             }}
           />
           <div className="btn-wrap flex justify-end">
-            <button
-              className="btn-primary"
-              onClick={() => {
-                add();
-              }}
-            >
+            <button className="btn-primary" onClick={handleAddAccount}>
               Add Account
             </button>
           </div>

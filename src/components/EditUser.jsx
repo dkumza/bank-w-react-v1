@@ -11,20 +11,13 @@ export const EditUser = ({
   const [resize, setResize] = useState(false); // resize edit wrapper
   const [balance, setBalance] = useState(0);
 
-  const handleEdit = () => {
-    setResize(() => !resize);
-  };
-
-  useEffect(() => {
-    if (null === edit) {
-      return;
-    }
-    setBalance(edit.balance);
-  }, [edit]);
-
   const save = (updatedBalance) => {
     setUpdateUsers({ ...edit, balance: updatedBalance, id: user.id });
     setEdit(null);
+  };
+
+  const handleEdit = () => {
+    setResize(() => !resize);
   };
 
   const handleAddBalance = () => {
@@ -36,6 +29,13 @@ export const EditUser = ({
     const updatedBalance = user.balance - balance;
     save(updatedBalance);
   };
+
+  useEffect(() => {
+    if (null === edit) {
+      return;
+    }
+    setBalance(edit.balance);
+  }, [edit]);
 
   return (
     <div>
